@@ -2,8 +2,10 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { Menu, X, ShoppingCart, Search } from "lucide-react";
+import { Menu, X, ShoppingCart } from "lucide-react";
+// import { Search } from "lucide-react";
 import { usePathname } from "next/navigation";
+import Image from "next/image";
 
 const navLinks = [
   { name: "Home", href: "/" },
@@ -19,14 +21,14 @@ export default function Header() {
   console.log(pathName);
 
   const [isOpen, setIsOpen] = useState(false);
-  const [search, setSearch] = useState("");
+  // const [search, setSearch] = useState("");
 
   return (
     <header className="sticky top-0 z-50 bg-gray-100 shadow-md">
-      <div className="container mx-auto px-4 py-3 flex justify-between items-center">
+      <div className="container mx-auto px-4  flex justify-between items-center">
         {/* Logo */}
         <Link href="/" className="text-xl font-bold text-blue-600">
-          Evident Academy
+          <Image src={"/logoDark.jpg"} width={50} height={50} alt="logo" />
         </Link>
 
         {/* Desktop nav */}
@@ -48,8 +50,9 @@ export default function Header() {
 
         {/* Search + Cart */}
         <div className="flex items-center gap-4">
-          <div className="hidden xl:flex items-center border border-gray-300 rounded-md px-2">
+          {/* <div className="hidden xl:flex items-center border border-gray-300 rounded-md px-2">
             <Search className="text-gray-500 w-4 h-4" />
+
             <input
               type="text"
               placeholder="Search..."
@@ -57,14 +60,25 @@ export default function Header() {
               onChange={(e) => setSearch(e.target.value)}
               className="outline-none px-2 py-1 w-40 text-sm"
             />
-          </div>
+          </div> */}
 
           <Link href="/cart" className="relative">
             <ShoppingCart className="w-6 h-6 text-gray-700 hover:text-blue-600 transition" />
             {/* You can add a badge with item count if needed */}
           </Link>
+          <Link
+            className={` hover:text-blue-600 transition ${
+              pathName === "/register"
+                ? "text-blue-600 font-bold"
+                : "text-gray-700"
+            } `}
+            href={"/register"}
+          >
+            Register
+          </Link>
 
           {/* Mobile menu button */}
+
           <button onClick={() => setIsOpen(!isOpen)} className="xl:hidden">
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -91,7 +105,7 @@ export default function Header() {
             ))}
 
             {/* Mobile search */}
-            <div className="flex items-center border border-gray-300 rounded-md px-2">
+            {/* <div className="flex items-center border border-gray-300 rounded-md px-2">
               <Search className="text-gray-500 w-4 h-4" />
               <input
                 type="text"
@@ -100,7 +114,7 @@ export default function Header() {
                 onChange={(e) => setSearch(e.target.value)}
                 className="outline-none px-2 py-1 w-full text-sm"
               />
-            </div>
+            </div> */}
           </nav>
         </div>
       )}

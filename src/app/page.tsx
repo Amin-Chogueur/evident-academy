@@ -4,7 +4,7 @@ import Link from "next/link";
 export default function HomePage() {
   return (
     <section className="bg-white text-gray-800  px-4">
-      <h1 className="text-3xl md:text-4xl font-bold mb-6 text-blue-700 text-center my-5">
+      <h1 className="text-3xl md:text-4xl font-bold mb-12 text-blue-700 text-center mt-5">
         Welcome to Evident Academy
       </h1>
 
@@ -12,7 +12,7 @@ export default function HomePage() {
         {/* Embedded YouTube Video */}
         <iframe
           className="absolute inset-0 w-full h-full"
-          src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=0&mute=1&controls=1"
+          src="https://www.youtube.com/embed/dpyoZAddffo?autoplay=0&mute=1&controls=1"
           title="Upcoming Dental Events"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
@@ -25,16 +25,16 @@ export default function HomePage() {
         </div>
       </div>
       <div className=" max-w-4xl mx-auto text-center my-10">
-        <p className="text-lg md:text-xl leading-relaxed mb-6">
+        <p className="text-[16px] md:text-xl leading-relaxed mb-6">
           At <span className="font-semibold">Evident Academy</span>, we provide
           top-tier evidence-based dental training for both aspiring students and
           experienced dentists.
         </p>
-        <p className="text-lg md:text-xl leading-relaxed">
+        <p className="text-[16px] md:text-xl leading-relaxed">
           We want you to improve your clinical skills, achieve excellence, and
           stay up-to-date with the latest technology in dentistry.
         </p>
-        <p className="text-lg md:text-xl leading-relaxed mt-6">
+        <p className="text-[16px] md:text-xl leading-relaxed mt-6">
           Whether you`re beginning your career or expanding your expertise,
           we’re here to support your growth every step of the way.
         </p>
@@ -51,7 +51,7 @@ export default function HomePage() {
                 height={200}
                 className="transition-transform duration-300 ease-in-out hover:scale-105 hover:-translate-x-2"
               />
-              <h2 className="text-center text-xl p-3 hover:text-blue-600 ">
+              <h2 className="text-center text-[24px] font-bold p-3 hover:text-blue-600 ">
                 Hands-on-courses
               </h2>
             </Link>
@@ -65,9 +65,9 @@ export default function HomePage() {
                 height={200}
                 className="transition-transform duration-300 ease-in-out hover:scale-105 hover:-translate-x-2"
               />
-              <h2 className="text-center text-xl p-3 hover:text-blue-600 ">
+              <h2 className="text-center text-[24px] font-bold p-3 hover:text-blue-600 ">
                 {" "}
-                Online courses
+                Online Dental Courses
               </h2>
             </Link>
           </div>
@@ -84,8 +84,8 @@ export default function HomePage() {
                 height={200}
                 className="transition-transform duration-300 ease-in-out hover:scale-105 hover:-translate-x-2"
               />
-              <h2 className="text-center text-xl p-3 hover:text-blue-600 ">
-                Conferences{" "}
+              <h2 className="text-center text-[24px] font-bold p-3 hover:text-blue-600 ">
+                Dental Conferences
               </h2>
             </Link>
           </div>
@@ -98,7 +98,7 @@ export default function HomePage() {
                 height={200}
                 className="transition-transform duration-300 ease-in-out hover:scale-105 hover:-translate-x-2"
               />
-              <h2 className="text-center text-xl p-3 hover:text-blue-600  ">
+              <h2 className="text-center text-[24px] font-bold p-3 hover:text-blue-600  ">
                 Evident Academy Club
               </h2>
             </Link>

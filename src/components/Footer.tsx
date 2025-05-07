@@ -8,12 +8,18 @@ import {
   Phone,
   MapPin,
 } from "lucide-react";
+import Image from "next/image";
 
 export default function Footer() {
   return (
     <footer className="bg-gray-100 text-gray-700 mt-8">
-      <div className="container mx-auto px-4 py-10 grid grid-cols-1 md:grid-cols-3 gap-8 ">
+      <div className="container mx-auto px-4 py-10 grid grid-cols-1 md:grid-cols-4 gap-8 ">
         {/* Contact Info */}
+        <div>
+          <Link href="/" className="text-xl font-bold text-blue-600">
+            <Image src={"/logoDark.jpg"} width={100} height={100} alt="logo" />
+          </Link>
+        </div>
         <div>
           <h3 className="text-lg font-semibold mb-4">Contact Us</h3>
           <ul className="space-y-2 text-sm">
