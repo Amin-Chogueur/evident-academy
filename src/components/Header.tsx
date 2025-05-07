@@ -13,6 +13,7 @@ const navLinks = [
   { name: "Online Courses", href: "/online-courses" },
   { name: "Conferences", href: "/conferences" },
   { name: "Academy Club", href: "/evident-academy-club" },
+  { name: "FAQ", href: "/faq" },
   { name: "Contact", href: "/contact-us" },
 ];
 

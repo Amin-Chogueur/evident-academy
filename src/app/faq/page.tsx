@@ -1,3 +1,4 @@
+"use client";
 import { ChevronDown } from "lucide-react";
 import { useState } from "react";
 const faqs = [
@@ -79,7 +80,7 @@ export default function FAQ() {
   const [current, setCurrent] = useState<number | null>(null);
   return (
     <div className="space-y-6 max-w-4xl mx-auto text-lg mt-10 bg-gray-100 p-4 md:p-10 rounded-2xl">
-      <h2 className="text-[28px] font-bold">
+      <h2 className="text-[28px] font-bold text-center text-blue-600">
         Frequently Asked Questions (FAQs)
       </h2>
       <div>
