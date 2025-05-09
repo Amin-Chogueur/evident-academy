@@ -1,5 +1,7 @@
+import Link from "next/link";
 import React from "react";
-
+import { clubFaqData } from "./data";
+import Accordion from "@/components/common/Accordion";
 export default function EvidentAcademyClub() {
   return (
     <section className="max-w-5xl mx-auto px-4 py-12 space-y-6 bg-gray-100 rounded-2xl">
@@ -44,6 +46,13 @@ export default function EvidentAcademyClub() {
 
       {/* Membership Cost */}
       <p className="font-bold text-base md:text-lg">Yearly membership cost:</p>
+      <Link
+        className="bg-blue-600 mx-auto block w-fit text-[28px] font-bold  hover:bg-blue-700 cursor-pointer p-2 rounded-2xl text-white"
+        href={"/register"}
+      >
+        Join the club
+      </Link>
+      <Accordion content={clubFaqData} />
     </section>
   );
 }

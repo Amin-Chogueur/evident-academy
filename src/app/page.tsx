@@ -12,7 +12,8 @@ export default function HomePage() {
         {/* Embedded YouTube Video */}
         <iframe
           className="absolute inset-0 w-full h-full"
-          src="https://www.youtube.com/embed/dpyoZAddffo?autoplay=0&mute=1&controls=1"
+          // src="https://www.youtube.com/embed/dpyoZAddffo?autoplay=0&mute=1&controls=1"
+          src="/HomeVideo.mp4"
           title="Upcoming Dental Events"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen

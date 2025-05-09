@@ -88,7 +88,7 @@ export default function Header() {
 
       {/* Mobile nav menu */}
       {isOpen && (
-        <div className="xl:hidden bg-gray-100 px-4 pb-4 absolute top-[55px] left-0 right-0 z-50 ">
+        <div className="xl:hidden bg-gray-100 px-4 pb-4 absolute top-[50px] left-0 right-0 z-50 pt-3 ">
           <nav className="flex flex-col gap-3 ">
             {navLinks.map((link) => (
               <Link
