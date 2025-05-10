@@ -14,12 +14,13 @@ const navLinks = [
   { name: "Conferences", href: "/conferences" },
   { name: "Academy Club", href: "/evident-academy-club" },
   { name: "FAQ", href: "/faq" },
+  { name: "Follow Us", href: "/follow-us" },
   { name: "Contact", href: "/contact-us" },
+  { name: "Dashboard", href: "/dashboard" },
 ];
 
 export default function Header() {
   const pathName = usePathname();
-  console.log(pathName);
 
   const [isOpen, setIsOpen] = useState(false);
   // const [search, setSearch] = useState("");

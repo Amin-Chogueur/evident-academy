@@ -7,15 +7,15 @@ import Link from "next/link";
 import { useState } from "react";
 import { faqData } from "./data";
 import Model from "@/components/common/Model";
+import BackgroundImage from "@/components/common/backgroundImage";
 
 export default function HandsOnCourses() {
   const [showModel, setShowModel] = useState(false);
   return (
     <div className="max-w-5xl mx-auto">
-      <div className="bg-[url('/pic7.jpg')] bg-cover bg-center h-[300px] md:h-[400px] w-full absolute left-0 top-0"></div>
-      <div className=" h-[300px] md:h-[400px] w-full "></div>
-      <section className="pb-10 px-4 max-w-7xl mx-auto text-gray-800">
-        <h1 className="text-[48px] font-bold text-blue-700 mb-10 text-center mt-[-30px] lg:mt-[-70px]">
+      <BackgroundImage imageKey="handsOnCourses" />
+      <section className="py-10 px-4 max-w-7xl mx-auto text-gray-800">
+        <h1 className="text-[48px] mb-16 font-bold text-blue-700  text-center mt-[-30px] lg:mt-[-70px]">
           Hands-On Courses
         </h1>
 
