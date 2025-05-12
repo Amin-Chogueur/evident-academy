@@ -14,9 +14,9 @@ export default function Model({ setShowModel, children }: ModelType) {
         onClick={() => setShowModel(false)}
       ></div>
 
-      <div className="relative bg-white text-black w-[330px] sm:w-[480px] md:w-[600px] lg:w-[800px] shadow-lg z-50 max-h-[500px] overflow-y-scroll rounded">
+      <div className="relative bg-black text-white w-[330px] sm:w-[480px] md:w-[600px] lg:w-[800px] shadow-lg z-50 max-h-[500px] overflow-y-scroll rounded">
         {/* Close button positioned relative to this container */}
-        <div className="sticky top-0 bg-white z-10 flex justify-end p-2">
+        <div className="sticky top-0 bg-black z-10 flex justify-end p-2">
           <span className="cursor-pointer" onClick={() => setShowModel(false)}>
             <X size={24} />
           </span>

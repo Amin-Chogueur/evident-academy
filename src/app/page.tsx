@@ -4,10 +4,12 @@ import Link from "next/link";
 export default function HomePage() {
   return (
     <section className="bg-white text-gray-800  px-4">
-      <h1 className="text-3xl md:text-4xl font-bold mb-12 text-blue-700 text-center mt-5">
+      <h1 className="text-3xl md:text-[48px] font-semibold mb-12  text-center mt-5">
         Welcome to Evident Academy
       </h1>
-
+      <h2 className="text-3xl md:text-[24px] font-bold mb-12  text-center mt-5">
+        Where Passion Meets Precision
+      </h2>
       <div className="relative w-full h-[60vh] bg-black overflow-hidden">
         {/* Embedded YouTube Video */}
         <iframe
@@ -25,19 +27,32 @@ export default function HomePage() {
           <p className="text-sm">Dental Conference – June 20, 2025</p>
         </div>
       </div>
-      <div className=" max-w-4xl mx-auto text-center my-10">
-        <p className="text-[16px] md:text-xl leading-relaxed mb-6">
-          At <span className="font-semibold">Evident Academy</span>, we provide
-          top-tier evidence-based dental training for both aspiring students and
-          experienced dentists.
+      <div className=" max-w-4xl mx-auto text-center my-10 text-[16px]">
+        <p className="  leading-relaxed mb-6">
+          “At Evident Academy
+          <span className="font-semibold">Evident Academy</span>, we provide
+          top-tier evidence based dental training for both aspiring students and
+          experienced dentists. We want you to improve your clinical skills,
+          achieve excellence, and be up-to-date with the latest technology in
+          dentistry.
         </p>
-        <p className="text-[16px] md:text-xl leading-relaxed">
-          We want you to improve your clinical skills, achieve excellence, and
-          stay up-to-date with the latest technology in dentistry.
+        <p className=" leading-relaxed">
+          Our dental continuing education courses are available both online and
+          in hands-on formats, we also host international dental conferences;
+          bringing together global experts for dynamic lectures and advanced
+          dental training workshops to help you excel in every aspect of your
+          clinical practice.
         </p>
-        <p className="text-[16px] md:text-xl leading-relaxed mt-6">
+        <p className=" leading-relaxed mt-6">
+          That`s not all, but we offer a unique opportunity to join Evident
+          Academy Club, a professional club designed for dentists and dental
+          students seeking to connect, grow, and expand their knowledge through
+          exclusive monthly lectures, clinical case discussions and expert
+          guidance.
+        </p>
+        <p>
           Whether you`re beginning your career or expanding your expertise,
-          we’re here to support your growth every step of the way.
+          we’re here to support your growth every step of the way.{" "}
         </p>
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 justify-center items-center mx-auto max-w-6xl px-4">
@@ -48,12 +63,12 @@ export default function HomePage() {
               <Image
                 src="/pic2.jpg"
                 alt="pic"
-                width={300}
+                width={320}
                 height={200}
                 className="transition-transform duration-300 ease-in-out hover:scale-105 hover:-translate-x-2"
               />
               <h2 className="text-center text-[24px] font-bold p-3 hover:text-blue-600 ">
-                Hands-on-courses
+                Hands-on Dental Courses
               </h2>
             </Link>
           </div>
@@ -62,7 +77,7 @@ export default function HomePage() {
               <Image
                 src="/pic3.jpg"
                 alt="pic"
-                width={300}
+                width={320}
                 height={200}
                 className="transition-transform duration-300 ease-in-out hover:scale-105 hover:-translate-x-2"
               />
@@ -79,9 +94,9 @@ export default function HomePage() {
           <div className="bg-gray-300 rounded-xl overflow-hidden">
             <Link href="/conferences">
               <Image
-                src="/pic4.jpg"
+                src="/DentalConferences1.jpg"
                 alt="pic"
-                width={300}
+                width={320}
                 height={200}
                 className="transition-transform duration-300 ease-in-out hover:scale-105 hover:-translate-x-2"
               />
@@ -93,9 +108,9 @@ export default function HomePage() {
           <div className="bg-gray-300 rounded-xl overflow-hidden">
             <Link href="/evident-academy-club">
               <Image
-                src="/pic6.jpg"
+                src="/EvidenceAcademy.jpg"
                 alt="pic"
-                width={300}
+                width={320}
                 height={200}
                 className="transition-transform duration-300 ease-in-out hover:scale-105 hover:-translate-x-2"
               />

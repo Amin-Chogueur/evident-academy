@@ -25,7 +25,7 @@ export const clubFaqData = [
         text: "Members get access to:",
       },
       {
-        text: "- Exclusive online courses for members every month",
+        text: "- Clinical case discussions and Q & A sessions",
       },
       {
         text: "- Case discussions and Q & A sessions",

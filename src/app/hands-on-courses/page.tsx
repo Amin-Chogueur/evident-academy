@@ -14,9 +14,9 @@ export default function HandsOnCourses() {
   return (
     <div className="max-w-5xl mx-auto">
       <BackgroundImage imageKey="handsOnCourses" />
-      <section className="py-10 px-4 max-w-7xl mx-auto text-gray-800">
-        <h1 className="text-[48px] mb-16 font-bold text-blue-700  text-center mt-[-30px] lg:mt-[-70px]">
-          Hands-On Courses
+      <section className="py-10 px-4 max-w-7xl mx-auto ">
+        <h1 className="text-[48px] mb-16 font-bold  text-center mt-[-30px] lg:mt-[-70px]">
+          Hands-on Dental Courses
         </h1>
 
         {/* Intro */}
@@ -35,11 +35,24 @@ export default function HandsOnCourses() {
         <div className="mb-12">
           <Card
             title="Endodontics for the Daily Practice"
-            description=" This is the time to start performing excellent root canal
-                treatments!"
-            imageUrl="/pic10.jpg"
+            description="This is the time to start 
+            performing excellent root canal treatments!"
+            imageUrl="/Endodontics.jpg"
             onShowModel={setShowModel}
-          />
+          >
+            <ul className="list-disc p-5">
+              <li>
+                <span className="font-bold">Language : </span> English
+              </li>
+              <li>
+                <span className="font-bold">Mode: 2 days hands-on course</span>
+              </li>
+              <li>
+                <span className="font-bold">Level : </span>Beginner and
+                intermediate
+              </li>
+            </ul>
+          </Card>
           {/* Images */}
 
           {/* Course Info */}
@@ -48,32 +61,23 @@ export default function HandsOnCourses() {
               {" "}
               <div className="space-y-6 max-w-4xl mx-auto text-lg   p-5 rounded-2xl ">
                 {/* Top Info Section */}
-                <div className="flex flex-col md:flex-row flex-wrap justify-center items-center gap-y-4 gap-x-10 text-center">
-                  <p>
-                    <strong>Language:</strong> English
-                  </p>
-                  <p>
-                    <strong>Location:</strong> Algiers, Algeria
-                  </p>
-                  <p>
-                    <strong>2 days hands-on</strong> course
-                  </p>
-                </div>
 
                 <div className="flex flex-col md:flex-row justify-center items-center gap-y-4 gap-x-10 text-center">
                   <p>
-                    <strong>Nearest date:</strong> 25/05/2025
+                    <strong className="text-[#a6a6a6]">Nearest date:</strong>{" "}
+                    25/05/2025
                   </p>
                   <p>
-                    <strong>Next dates:</strong> 20/10/2025
+                    <strong className="text-[#a6a6a6]">Next dates:</strong>{" "}
+                    20/10/2025
                   </p>
                 </div>
 
-                <hr className="border-t-2 border-blue-600 my-4" />
+                <hr className="border-t-2 border-[#a6a6a6] my-4" />
 
                 {/* Course Program Section */}
                 <div>
-                  <p className="font-bold text-xl mt-6 text-blue-600 text-center">
+                  <p className="font-bold text-xl mt-6 text-[#a6a6a6] text-center">
                     Course Program:
                   </p>
                   <div className="flex flex-col md:flex-row justify-between gap-8 mt-4">
@@ -83,11 +87,9 @@ export default function HandsOnCourses() {
                       </p>
                       <ul className="list-disc list-inside ml-4">
                         <li>Diagnosis & treatment planning</li>
-                        <li>Isolation and rubber dam techniques</li>
-                        <li>Access cavity</li>
-                        <li>
-                          Working length determination and instrumentation
-                        </li>
+                        <li>Isolation &rubber dam techniques</li>
+                        <li>Access cavity </li>
+                        <li>Working length determination & instrumentation</li>
                         <li>Irrigation protocol</li>
                         <li>3D Obturation</li>
                       </ul>
@@ -107,7 +109,7 @@ export default function HandsOnCourses() {
                 </div>
 
                 {/* Lecturer and Cost Info */}
-                <p className="font-semibold text-xl mt-6 text-blue-600 text-center">
+                <p className="font-semibold text-xl mt-6 text-[#a6a6a6]  text-center">
                   About the course lecturer:
                 </p>
 
@@ -139,7 +141,7 @@ export default function HandsOnCourses() {
                   instruments available on the market.
                 </p>
                 <Link
-                  className="bg-blue-600 mx-auto block w-fit  hover:bg-blue-700 cursor-pointer p-2 rounded-2xl text-white"
+                  className="bg-white mx-auto block w-fit  hover:bg-[#ddd] cursor-pointer p-2 rounded-2xl text-black font-bold"
                   href={"/register"}
                 >
                   Book Your Course

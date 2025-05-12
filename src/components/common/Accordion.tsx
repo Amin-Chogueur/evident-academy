@@ -18,7 +18,7 @@ export default function Accordion({ content, isOpen }: ContentType) {
   const [show, setShow] = useState(isOpen || false);
   return (
     <div className="space-y-6 max-w-4xl mx-auto text-lg mt-10 bg-gray-200 p-4 md:p-10 rounded-2xl">
-      <h2 className="text-[28px] font-bold text-center text-blue-600">
+      <h2 className="text-[28px] font-bold text-center ">
         Frequently Asked Questions{" "}
         <span
           className="underline cursor-pointer"

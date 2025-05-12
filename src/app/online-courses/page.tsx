@@ -13,49 +13,58 @@ export default function OnlineCourses() {
   return (
     <>
       <BackgroundImage imageKey="onlineCourses" />{" "}
-      <section className="max-w-5xl mx-auto px-4 pb-8  bg-gray-100 rounded-2xl">
+      <section className="max-w-5xl mx-auto px-4 pb-8   rounded-2xl">
         {/* Main Title */}
-        <h1 className="text-3xl md:text-[48px] text-blue-600 font-bold mb-6 mt-[-15px]">
-          Unique remote dental learning opportunity with live procedure demos
+        <h1 className="text-[48px]  font-bold mb-6 mt-[-20px] text-center">
+          Online Dental Courses
         </h1>
+        <h2 className="text-3xl md:text-[32px]  font-bold mb-6 text-center">
+          Unique remote dental learning opportunity with live procedure demos
+        </h2>
 
         {/* Intro Paragraphs */}
-        <p className="text-base md:text-lg">
-          Our online courses combine live procedure demos with practical
-          insights, giving you real-time learning from expert trainers.
-        </p>
-        <p className="text-base md:text-lg mb-12">
-          You’ll not only see how it’s done; you’ll understand why, and be ready
-          to apply it in your own practice the next day.
-        </p>
+        <div className="text-[16px] text-center mb-12">
+          <p>
+            Our online courses combine live procedure demos with practical
+            insights, giving you real-time learning from expert trainers.
+          </p>
+          <p>
+            You’ll not only see how it’s done; you’ll understand why, and be
+            ready to apply it in your own practice the next day.
+          </p>
+        </div>
 
         {/* Section Title */}
         <Card
-          title=" Isolation and rubber dam techniques"
-          description=" Excellent treatment starts with the perfect isolation. Learn the basics
-        and tips and tricks of rubber dam isolation!"
-          imageUrl="/pic6.jpg"
+          title="Isolation and rubber dam techniques"
+          description=" Excellent 
+          treatment starts with perfect isolation. Learn the basics and tips and tricks of 
+          rubber dam isolation!"
+          imageUrl="/pic3.jpg"
           onShowModel={setShowModel}
-        />
+        >
+          <ul className="list-disc p-5">
+            <li>
+              <span className="font-bold">Language : </span> English
+            </li>
+            <li>
+              <span className="font-bold">Mode: </span> Online
+            </li>
+            <li>
+              <span className="font-bold">Level : </span>Beginner and
+              intermediate
+            </li>
+          </ul>
+        </Card>
 
         {/* Course Info */}
         {showModel && (
           <Model setShowModel={setShowModel}>
             <div className="p-5 space-y-6">
-              <div className="flex flex-col gap-2 lg:flex-row justify-between items-center  text-base md:text-lg">
-                <p>
-                  <strong>Language:</strong> English
-                </p>
-                <p>
-                  <strong>Mode:</strong> Online
-                </p>
-                <p>
-                  <strong>Level:</strong> Beginner and intermediate
-                </p>
-              </div>
-
               <div className="space-y-2 text-base md:text-lg">
-                <p className="font-bold">Course program:</p>
+                <p className="font-bold text-[#a6a6a6] text-center">
+                  Course program:
+                </p>
                 <p>You will learn and see step by step:</p>
                 <ul className="list-decimal list-inside space-y-1">
                   <li>Clamp selection</li>
@@ -79,12 +88,14 @@ export default function OnlineCourses() {
                 </ul>
               </div>
 
-              <p className="text-base md:text-lg font-bold text-blue-600 text-center">
+              <p className="text-base md:text-lg font-bold text-[#a6a6a6] text-center">
                 About the course lecturer:
               </p>
-              <p className="text-base md:text-lg font-bold">Course cost:</p>
+              <p className="text-base md:text-lg font-bold text-[#a6a6a6]">
+                Course cost:
+              </p>
               <Link
-                className="bg-blue-600 mx-auto block w-fit  hover:bg-blue-700 cursor-pointer p-2 rounded-2xl text-white"
+                className="bg-white mx-auto block w-fit  hover:bg-[#ddd] cursor-pointer p-2 rounded-2xl text-black font-bold"
                 href={"/register"}
               >
                 Book Your Course

@@ -8,7 +8,7 @@ export default function ContactUs() {
       <BackgroundImage imageKey="contactUs" />{" "}
       <section className="max-w-4xl mx-auto px-4 pb-12 space-y-8 bg-gray-100  rounded-2xl">
         {/* Page Title */}
-        <h1 className="text-4xl md:text-5xl font-bold text-center text-blue-600">
+        <h1 className="text-[48px]  font-bold text-center text-black">
           Contact us
         </h1>
 
