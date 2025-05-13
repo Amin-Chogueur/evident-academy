@@ -1,7 +1,16 @@
+"use client";
+import { Country, City } from "country-state-city";
+import { useState } from "react";
 import BackgroundImage from "@/components/common/backgroundImage";
-import React from "react";
 
 export default function ContactUs() {
+  const [selectedCountry, setSelectedCountry] = useState("");
+  const [selectedCity, setSelectedCity] = useState("");
+
+  const countries = Country.getAllCountries();
+  const cities = selectedCountry
+    ? City.getCitiesOfCountry(selectedCountry)
+    : [];
   return (
     <>
       {" "}
@@ -25,7 +34,7 @@ export default function ContactUs() {
               <input
                 id="title"
                 type="text"
-                className="font-normal border border-blue-500 rounded p-2"
+                className="font-normal border border-[#a6a6a6]  rounded p-2"
               />
             </div>
             <div className="flex flex-col">
@@ -33,7 +42,7 @@ export default function ContactUs() {
               <input
                 id="fullName"
                 type="text"
-                className="font-normal border border-blue-500  rounded p-2"
+                className="font-normal border border-[#a6a6a6]   rounded p-2"
               />
             </div>
             <div className="flex flex-col">
@@ -41,7 +50,7 @@ export default function ContactUs() {
               <input
                 id="email"
                 type="email"
-                className="font-normal border border-blue-500  rounded p-2"
+                className="font-normal border border-[#a6a6a6]   rounded p-2"
               />
             </div>
             <div className="flex flex-col">
@@ -49,7 +58,7 @@ export default function ContactUs() {
               <input
                 id="mobile"
                 type="tel"
-                className="font-normal border border-blue-500  rounded p-2"
+                className="font-normal border border-[#a6a6a6]  rounded p-2"
               />
             </div>
             <div className="flex flex-col">
@@ -57,24 +66,44 @@ export default function ContactUs() {
               <input
                 id="clinic"
                 type="text"
-                className="font-normal border border-blue-500  rounded p-2"
+                className="font-normal border border-[#a6a6a6]   rounded p-2"
               />
             </div>
             <div className="flex flex-col">
               <label htmlFor="country">Country:</label>
-              <input
+              <select
                 id="country"
-                type="text"
-                className="font-normal border border-blue-500  rounded p-2"
-              />
+                value={selectedCountry}
+                onChange={(e) => setSelectedCountry(e.target.value)}
+                className="font-normal border border-[#a6a6a6] rounded p-2"
+              >
+                <option value="">Select a country</option>
+                {countries.map((country) => (
+                  <option key={country.isoCode} value={country.isoCode}>
+                    {country.name}
+                  </option>
+                ))}
+              </select>
             </div>
-            <div className="flex flex-col md:col-span-2">
+
+            {/* City Select (based on selected country) */}
+            <div className="flex flex-col">
               <label htmlFor="city">City:</label>
-              <input
+              <select
                 id="city"
-                type="text"
-                className="font-normal border border-blue-500  rounded p-2"
-              />
+                value={selectedCity}
+                onChange={(e) => setSelectedCity(e.target.value)}
+                className="font-normal border border-[#a6a6a6] rounded p-2"
+                disabled={!selectedCountry}
+              >
+                <option value="">Select a city</option>
+                {cities &&
+                  cities.map((city, i) => (
+                    <option key={`${city.name}${i}`} value={city.name}>
+                      {city.name}
+                    </option>
+                  ))}
+              </select>
             </div>
           </div>
 
@@ -83,13 +112,13 @@ export default function ContactUs() {
             <textarea
               id="message"
               rows={5}
-              className="font-normal border border-blue-500  rounded p-2"
+              className="font-normal border border-[#a6a6a6]   rounded p-2"
             ></textarea>
           </div>
 
           <button
             type="submit"
-            className="px-6 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+            className="px-6 py-2 bg-black cursor-pointer text-white rounded hover:bg-[#222]"
           >
             Submit
           </button>

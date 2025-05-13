@@ -7,12 +7,12 @@ export default function Conferences() {
       <BackgroundImage imageKey="conferences" />{" "}
       <section className="max-w-5xl mx-auto px-4 pb-12 space-y-6 bg-gray-100 rounded-2xl">
         {/* Main Title */}
-        <h1 className="text-4xl md:text-5xl mb-16 font-bold text-center text-blue-600">
+        <h1 className="text-[48px] mb-16 font-bold text-center ">
           Dental Conferences
         </h1>
 
         {/* Subtitle */}
-        <h2 className="text-2xl md:text-3xl font-bold">
+        <h2 className="text-2xl md:text-3xl font-semibold text-center">
           National and international speakers and trainers
         </h2>
 

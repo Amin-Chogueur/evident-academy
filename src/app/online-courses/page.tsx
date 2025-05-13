@@ -40,7 +40,7 @@ export default function OnlineCourses() {
           description=" Excellent 
           treatment starts with perfect isolation. Learn the basics and tips and tricks of 
           rubber dam isolation!"
-          imageUrl="/pic3.jpg"
+          imageUrl="/pic6.jpg"
           onShowModel={setShowModel}
         >
           <ul className="list-disc p-5">
