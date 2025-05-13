@@ -1,5 +1,4 @@
-import Image from "next/image";
-import Link from "next/link";
+import Category from "@/components/common/Category";
 
 export default function HomePage() {
   return (
@@ -57,69 +56,26 @@ export default function HomePage() {
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 justify-center items-center mx-auto max-w-6xl px-4">
         {/* First Column */}
-        <div className="space-y-6 flex flex-col items-center">
-          <div className="bg-gray-300 rounded-xl overflow-hidden">
-            <Link href="/hands-on-courses">
-              <Image
-                src="/pic2.jpg"
-                alt="pic"
-                width={320}
-                height={200}
-                className="transition-transform duration-300 ease-in-out hover:scale-105 hover:-translate-x-2"
-              />
-              <h2 className="text-center text-[24px] font-bold p-3 hover:text-blue-600 ">
-                Hands-on Dental Courses
-              </h2>
-            </Link>
-          </div>
-          <div className="bg-gray-300 rounded-xl overflow-hidden">
-            <Link href="/online-courses">
-              <Image
-                src="/pic3.jpg"
-                alt="pic"
-                width={320}
-                height={200}
-                className="transition-transform duration-300 ease-in-out hover:scale-105 hover:-translate-x-2"
-              />
-              <h2 className="text-center text-[24px] font-bold p-3 hover:text-blue-600 ">
-                {" "}
-                Online Dental Courses
-              </h2>
-            </Link>
-          </div>
-        </div>
+
+        <Category
+          imageUrl="/pic2.jpg"
+          title="Hands-on Dental Courses"
+          link="/hands-on-courses"
+        />
+        <Category imageUrl="/pic3.jpg" title="Online Dental Courses" link="/" />
 
         {/* Second Column */}
-        <div className="space-y-6 flex flex-col items-center">
-          <div className="bg-gray-300 rounded-xl overflow-hidden">
-            <Link href="/conferences">
-              <Image
-                src="/DentalConferences1.jpg"
-                alt="pic"
-                width={320}
-                height={200}
-                className="transition-transform duration-300 ease-in-out hover:scale-105 hover:-translate-x-2"
-              />
-              <h2 className="text-center text-[24px] font-bold p-3 hover:text-blue-600 ">
-                Dental Conferences
-              </h2>
-            </Link>
-          </div>
-          <div className="bg-gray-300 rounded-xl overflow-hidden">
-            <Link href="/evident-academy-club">
-              <Image
-                src="/EvidenceAcademy.jpg"
-                alt="pic"
-                width={320}
-                height={200}
-                className="transition-transform duration-300 ease-in-out hover:scale-105 hover:-translate-x-2"
-              />
-              <h2 className="text-center text-[24px] font-bold p-3 hover:text-blue-600  ">
-                Evident Academy Club
-              </h2>
-            </Link>
-          </div>
-        </div>
+
+        <Category
+          imageUrl="/DentalConferences1.jpg"
+          title="Dental Conferences"
+          link="/conferences"
+        />
+        <Category
+          imageUrl="/EvidenceAcademy.jpg"
+          title=" Evident Academy Club"
+          link="/evident-academy-club"
+        />
       </div>
     </section>
   );

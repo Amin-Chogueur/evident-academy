@@ -1,128 +1,130 @@
 export const faqData = [
   {
     id: 1,
-    title: "Who can register in these courses?",
-    content: [
+    question: "Who is eligible to enroll in these courses?",
+    answer: [
       {
-        text: "Our courses are open to licensed dentists, dental specialists and dental students depending on the course level. Please check individual course information.",
+        text: "Our courses are open to licensed dentists, dental specialists, and dental students, depending on the course requirements. Please refer to each course page for specific eligibility.",
       },
     ],
   },
   {
     id: 2,
-    title: "Are these courses suitable for beginners?",
-    content: [
+    question: "Are the courses beginner-friendly?",
+    answer: [
       {
-        text: "Yes! We offer beginner to advanced levels. Each course description specifies the experience level it’s best suited for.",
+        text: "Absolutely! We offer courses for all experience levels—beginner, intermediate, and advanced. Course descriptions clearly outline the appropriate level for each.",
       },
     ],
   },
   {
     id: 3,
-    title: "What skills or topics are covered?",
-    content: [
+    question: "What topics and skills will I learn?",
+    answer: [
       {
-        text: "We offer a variety of topics including endodontics, restorative dentistry/prosthodontics, pediatric dentistry, and dental surgery.",
+        text: "Our curriculum covers endodontics, prosthodontics, pediatric dentistry, restorative techniques, and surgical procedures, among others.",
       },
     ],
   },
   {
     id: 4,
-    title: "How will I get hands-on experience?",
-    content: [
+    question: "Will I get hands-on experience?",
+    answer: [
       {
-        text: "Most courses include hands-on training using typodonts, extracted teeth, 3D tooth models, or animal head (example: sheep head).",
+        text: "Yes. Practical training includes work with typodonts, extracted teeth, 3D models, and in some cases, animal specimens like sheep heads.",
       },
     ],
   },
   {
     id: 5,
-    title: "What materials and instruments are provided?",
-    content: [
+    question: "Are instruments and materials provided?",
+    answer: [
       {
-        text: "We provide all necessary instruments, materials, and equipment during the training sessions.",
+        text: "Yes, all necessary materials, tools, and equipment are supplied during the training sessions.",
       },
     ],
   },
   {
     id: 6,
-    title: "Do I need to bring anything with me?",
-    content: [
+    question: "Should I bring any supplies with me?",
+    answer: [
       {
-        text: "No special equipment is required. Just bring your notebooks/I-pads/ laptops and be ready to take notes and learn.",
+        text: "No additional equipment is needed. Just bring a notebook, tablet, or laptop to take notes.",
       },
     ],
   },
   {
     id: 7,
-    title: "Where are the courses held?",
-    content: [
+    question: "Where are the courses conducted?",
+    answer: [
       {
-        text: "Courses are conducted all across Algeria´s biggest cities. Check each course page for location details.",
+        text: "Courses are offered in major cities across Algeria. Course pages include exact venue and city details.",
       },
     ],
   },
   {
     id: 8,
-    title: "How long is each course?",
-    content: [
+    question: "How long does each course last?",
+    answer: [
       {
-        text: "Course durations range from 1-day intensives to 3-day workshops. See individual listings for full schedules.",
+        text: "Duration varies from 1-day intensives to 3-day comprehensive workshops. Course pages include full schedules.",
       },
     ],
   },
   {
     id: 9,
-    title: "Will I receive a certificate after completing the course?",
-    content: [
+    question: "Will I get a certificate after completing the course?",
+    answer: [
       {
-        text: "Yes, all participants receive a certificate of completion upon completing the course.",
+        text: "Yes. A certificate of completion is awarded to all participants who successfully finish the course.",
       },
     ],
   },
   {
     id: 10,
-    title: "What is the refund or cancellation policy?",
-    content: [
+    question: "What is your refund and cancellation policy?",
+    answer: [
       {
-        text: "Full Refund: Cancellations made within 48 hours of payment are eligible for a full refund minus a small processing fee (if applicable).",
+        text: "Full Refund: Cancel within 48 hours of payment for a full refund (minus applicable fees).",
       },
       {
-        text: "50% Refund or Full Credit: Cancellations received 30 or more days before the course start date are eligible for either a 50% refund or a full credit toward a future course, valid toward any future course for up to 12 months.",
+        text: "50% Refund or Full Credit: Cancel 30+ days before the course for a 50% refund or full credit toward any course within 12 months.",
       },
       {
-        text: "50% Credit: Cancellations received 15–29 days before the course start date will receive a 50% credit toward a future course, valid toward any future course for up to 12 months.",
+        text: "50% Credit Only: Cancel 15–29 days before the course to receive a 50% credit for future courses (valid for 12 months).",
       },
       {
-        text: "No Refund or Credit: Cancellations received fewer than 15 days before the course start date, or no-shows, are not eligible for a refund or credit under any circumstances.",
+        text: "No Refund or Credit: Cancellations within 14 days or no-shows are non-refundable.",
       },
     ],
   },
   {
     id: 11,
-    title: "Do you offer group or clinic discounts?",
-    content: [
+    question: "Are there group or clinic discounts available?",
+    answer: [
       {
-        text: "Yes, discounts are available for teams or group bookings. Contact us for a custom quote.",
+        text: "Yes, we offer special pricing for group or clinic registrations. Please contact us for a personalized quote.",
       },
-      { text: "We also offer discounts for Evident Academy club members." },
+      {
+        text: "Additional discounts are available for Evident Academy Club members.",
+      },
     ],
   },
   {
     id: 12,
-    title: "How do I register?",
-    content: [
+    question: "How do I register for a course?",
+    answer: [
       {
-        text: "You can register directly through our website by selecting your desired course and completing both the registration and payment process.",
+        text: "Visit our website, select your preferred course, and complete the registration and payment process online.",
       },
     ],
   },
   {
     id: 13,
-    title: "How do I make the payment?",
-    content: [
+    question: "What payment methods do you accept?",
+    answer: [
       {
-        text: "We accept Carte EDAHABIA, credit cards, PayPal, and bank transfers.",
+        text: "We accept Carte EDAHABIA, major credit cards, PayPal, and bank transfers.",
       },
     ],
   },

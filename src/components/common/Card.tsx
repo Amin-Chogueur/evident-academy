@@ -12,7 +12,6 @@ export default function Card({
   title,
   imageUrl,
   description,
-
   onShowModel,
   children,
 }: CardType) {

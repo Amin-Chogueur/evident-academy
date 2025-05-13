@@ -1,16 +1,14 @@
 "use client";
-import { Country, City } from "country-state-city";
+import { Country, State } from "country-state-city";
 import { useState } from "react";
 import BackgroundImage from "@/components/common/backgroundImage";
 
 export default function ContactUs() {
+  const countries = Country.getAllCountries();
   const [selectedCountry, setSelectedCountry] = useState("");
+  const cities = State.getStatesOfCountry(selectedCountry);
   const [selectedCity, setSelectedCity] = useState("");
 
-  const countries = Country.getAllCountries();
-  const cities = selectedCountry
-    ? City.getCitiesOfCountry(selectedCountry)
-    : [];
   return (
     <>
       {" "}
@@ -85,15 +83,13 @@ export default function ContactUs() {
                 ))}
               </select>
             </div>
-
-            {/* City Select (based on selected country) */}
             <div className="flex flex-col">
               <label htmlFor="city">City:</label>
               <select
                 id="city"
                 value={selectedCity}
                 onChange={(e) => setSelectedCity(e.target.value)}
-                className="font-normal border border-[#a6a6a6] rounded p-2"
+                className={`font-normal border border-[#a6a6a6] rounded p-2 disabled:bg-gray-200`}
                 disabled={!selectedCountry}
               >
                 <option value="">Select a city</option>

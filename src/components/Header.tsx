@@ -29,7 +29,7 @@ export default function Header() {
     <header className="sticky top-0 z-50 bg-gray-100 shadow-md">
       <div className="container mx-auto px-4  flex justify-between items-center">
         {/* Logo */}
-        <Link href="/" className="text-xl font-bold text-blue-600">
+        <Link href="/">
           <Image src={"/logoDark.jpg"} width={50} height={50} alt="logo" />
         </Link>
 
@@ -39,7 +39,7 @@ export default function Header() {
             <Link
               key={link.name}
               href={link.href}
-              className={` hover:text-blue-600 transition ${
+              className={` hover:text-blue-600 transition text-[14px] ${
                 pathName === link.href
                   ? "text-blue-600 font-bold"
                   : "text-gray-700"
@@ -69,7 +69,7 @@ export default function Header() {
             {/* You can add a badge with item count if needed */}
           </Link>
           <Link
-            className={` hover:text-blue-600 transition ${
+            className={` hover:text-blue-600 transition text-[14px] ${
               pathName === "/register"
                 ? "text-blue-600 font-bold"
                 : "text-gray-700"
@@ -96,7 +96,7 @@ export default function Header() {
                 key={link.name}
                 href={link.href}
                 onClick={() => setIsOpen(false)}
-                className={` hover:text-blue-600 transition ${
+                className={` hover:text-blue-600 transition text-[14px] ${
                   pathName === link.href
                     ? "text-blue-600 font-bold"
                     : "text-gray-700"

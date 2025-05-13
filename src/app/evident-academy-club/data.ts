@@ -1,8 +1,8 @@
 export const clubFaqData = [
   {
     id: 1,
-    title: "What is Evident Academy Club?",
-    content: [
+    question: "What is Evident Academy Club?",
+    answer: [
       {
         text: "Evident Academy Club is a professional community for dentists, dental specialists and dental students who want to connect, learn, and grow through exclusive events, resources, and peer collaboration.",
       },
@@ -10,8 +10,8 @@ export const clubFaqData = [
   },
   {
     id: 2,
-    title: "Who can join the club?",
-    content: [
+    question: "Who can join the club?",
+    answer: [
       {
         text: "Membership is open to licensed dentists, dental specialists and dental students.",
       },
@@ -19,8 +19,8 @@ export const clubFaqData = [
   },
   {
     id: 3,
-    title: "What are the benefits of joining the club?",
-    content: [
+    question: "What are the benefits of joining the club?",
+    answer: [
       {
         text: "Members get access to:",
       },
@@ -40,8 +40,8 @@ export const clubFaqData = [
   },
   {
     id: 4,
-    title: "Which topics are covered in online courses/discussions?",
-    content: [
+    question: "Which topics are covered in online courses/discussions?",
+    answer: [
       {
         text: "Courses range from clinical techniques (e.g., endodontics, prosthodontics, dental surgery) to practice management, treatment planning, and digital dentistry.",
       },
@@ -49,8 +49,8 @@ export const clubFaqData = [
   },
   {
     id: 5,
-    title: "Is there a membership fee?",
-    content: [
+    question: "Is there a membership fee?",
+    answer: [
       {
         text: "Yes, the membership fee is",
       },
@@ -58,8 +58,8 @@ export const clubFaqData = [
   },
   {
     id: 6,
-    title: "How frequently is the membership fee paid?",
-    content: [
+    question: "How frequently is the membership fee paid?",
+    answer: [
       {
         text: "It is paid yearly.",
       },
@@ -67,8 +67,8 @@ export const clubFaqData = [
   },
   {
     id: 7,
-    title: "How do I stay informed about upcoming events?",
-    content: [
+    question: "How do I stay informed about upcoming events?",
+    answer: [
       {
         text: "Members receive regular email updates. You will also be added to a WhatsApp group exclusively for members.",
       },
@@ -76,8 +76,8 @@ export const clubFaqData = [
   },
   {
     id: 8,
-    title: "Will I receive a membership certificate?",
-    content: [
+    question: "Will I receive a membership certificate?",
+    answer: [
       {
         text: "Yes, we can prepare a certificate upon request. You can email us to request for the certificate.",
       },
@@ -85,8 +85,8 @@ export const clubFaqData = [
   },
   {
     id: 9,
-    title: "What is the refund or cancellation policy?",
-    content: [
+    question: "What is the refund or cancellation policy?",
+    answer: [
       {
         text: "You may cancel your subscription within 24 hours of purchase for a full refund.",
       },
@@ -100,8 +100,8 @@ export const clubFaqData = [
   },
   {
     id: 10,
-    title: "How do I join the club?",
-    content: [
+    question: "How do I join the club?",
+    answer: [
       {
         text: "You can sign up directly on our website. Just fill out the registration form, and complete the payment.",
       },
@@ -109,8 +109,8 @@ export const clubFaqData = [
   },
   {
     id: 11,
-    title: "How do I make the payment?",
-    content: [
+    question: "How do I make the payment?",
+    answer: [
       {
         text: "We accept Carte EDAHABIA, credit cards, PayPal, and bank transfers.",
       },

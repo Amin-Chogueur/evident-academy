@@ -5,8 +5,8 @@ import { useState } from "react";
 type ContentType = {
   content: {
     id: number;
-    title: string;
-    content: {
+    question: string;
+    answer: {
       text: string;
     }[];
   }[];
@@ -30,13 +30,10 @@ export default function Accordion({ content, isOpen }: ContentType) {
       {show && (
         <div>
           {content.map((item) => (
-            <div
-              key={item.title}
-              className="bg-gray-100 p-2 md:p-4 rounded my-3"
-            >
+            <div key={item.id} className="bg-gray-100 p-2 md:p-4 rounded my-3">
               <div className="flex justify-between items-center p-2 md:p-4">
                 <h3 className="text-[16px] font-semibold ">
-                  {item.id}. {item.title}
+                  {item.id}. {item.question}
                 </h3>
                 <span
                   className="cursor-pointer"
@@ -47,10 +44,17 @@ export default function Accordion({ content, isOpen }: ContentType) {
               </div>
 
               {current === item.id && (
-                <ul className=" p-2 md:px-4 list-disc ml-8">
-                  {item.content.map((answer, i) => (
-                    <li key={i}>{answer.text}</li>
-                  ))}
+                <ul className="p-2 md:px-4 list-disc ml-8">
+                  {item.answer.map((content, i) => {
+                    const isNumbered = /^\d\//.test(content.text); // matches "1/", "2/", etc.
+                    return isNumbered ? (
+                      <span key={i} className="font-semibold">
+                        {content.text}
+                      </span>
+                    ) : (
+                      <li key={i}>{content.text}</li>
+                    );
+                  })}
                 </ul>
               )}
             </div>
