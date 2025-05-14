@@ -22,7 +22,7 @@ export default function RootLayout({ children }: RootLayoutType) {
     <html lang="en">
       <body className={poppins.className}>
         <div
-          className={`min-h-screen flex flex-col justify-between relative $`}
+          className={`min-h-screen flex flex-col justify-between relative bg-[var(--mainBg)]`}
         >
           <Header />
           <main className="flex-1 container mx-auto lg:p-10">{children}</main>

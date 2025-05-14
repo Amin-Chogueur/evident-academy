@@ -2,7 +2,7 @@ import Category from "@/components/common/Category";
 
 export default function HomePage() {
   return (
-    <section className="bg-white text-gray-800  px-4">
+    <section className="  px-4">
       <h1 className="text-3xl md:text-[48px] font-semibold mb-12  text-center mt-5">
         Welcome to Evident Academy
       </h1>
@@ -28,8 +28,7 @@ export default function HomePage() {
       </div>
       <div className=" max-w-4xl mx-auto text-center my-10 text-[16px]">
         <p className="  leading-relaxed mb-6">
-          “At Evident Academy
-          <span className="font-semibold">Evident Academy</span>, we provide
+          At <span className="font-semibold">Evident Academy</span>, we provide
           top-tier evidence based dental training for both aspiring students and
           experienced dentists. We want you to improve your clinical skills,
           achieve excellence, and be up-to-date with the latest technology in
@@ -43,14 +42,14 @@ export default function HomePage() {
           clinical practice.
         </p>
         <p className=" leading-relaxed mt-6">
-          That`s not all, but we offer a unique opportunity to join Evident
+          That&apos;s not all, but we offer a unique opportunity to join Evident
           Academy Club, a professional club designed for dentists and dental
           students seeking to connect, grow, and expand their knowledge through
           exclusive monthly lectures, clinical case discussions and expert
           guidance.
         </p>
-        <p>
-          Whether you`re beginning your career or expanding your expertise,
+        <p className="mt-6">
+          Whether you&apos;re beginning your career or expanding your expertise,
           we’re here to support your growth every step of the way.{" "}
         </p>
       </div>
@@ -62,7 +61,11 @@ export default function HomePage() {
           title="Hands-on Dental Courses"
           link="/hands-on-courses"
         />
-        <Category imageUrl="/pic3.jpg" title="Online Dental Courses" link="/" />
+        <Category
+          imageUrl="/pic3.jpg"
+          title="Online Dental Courses"
+          link="/online-courses"
+        />
 
         {/* Second Column */}
 

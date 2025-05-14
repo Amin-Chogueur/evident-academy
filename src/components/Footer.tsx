@@ -1,13 +1,12 @@
 import Link from "next/link";
+import { Mail, Phone, MapPin } from "lucide-react";
 import {
-  Facebook,
-  Instagram,
-  Twitter,
-  Linkedin,
-  Mail,
-  Phone,
-  MapPin,
-} from "lucide-react";
+  FaFacebookF,
+  FaInstagram,
+  FaLinkedinIn,
+  FaYoutube,
+  FaTiktok,
+} from "react-icons/fa";
 import Image from "next/image";
 
 export default function Footer() {
@@ -22,7 +21,7 @@ export default function Footer() {
         </div>
         <div>
           <h3 className="text-lg font-semibold mb-4">Contact Us</h3>
-          <ul className="space-y-2 text-sm">
+          <ul className="space-y-2 text-sm text-center">
             <li className="flex items-center gap-2">
               <Mail className="w-4 h-4" />
               <a href="mailto:info@evidentacademy.com">
@@ -43,18 +42,21 @@ export default function Footer() {
         {/* Social Media */}
         <div>
           <h3 className="text-lg font-semibold mb-4">Follow Us</h3>
-          <div className="flex gap-4 text-gray-600">
+          <div className="flex gap-4">
             <Link href="#" aria-label="Facebook">
-              <Facebook className="w-5 h-5 hover:text-blue-600 transition" />
+              <FaFacebookF className="text-gray-600 hover:text-[#1877F2] w-5 h-5 transition-colors duration-200" />
             </Link>
             <Link href="#" aria-label="Instagram">
-              <Instagram className="w-5 h-5 hover:text-pink-500 transition" />
-            </Link>
-            <Link href="#" aria-label="Twitter">
-              <Twitter className="w-5 h-5 hover:text-blue-400 transition" />
+              <FaInstagram className="text-gray-600 hover:text-[#E4405F] w-5 h-5 transition-colors duration-200" />
             </Link>
             <Link href="#" aria-label="LinkedIn">
-              <Linkedin className="w-5 h-5 hover:text-blue-700 transition" />
+              <FaLinkedinIn className="text-gray-600 hover:text-[#0A66C2] w-5 h-5 transition-colors duration-200" />
+            </Link>
+            <Link href="#" aria-label="YouTube">
+              <FaYoutube className="text-gray-600 hover:text-[#FF0000] w-5 h-5 transition-colors duration-200" />
+            </Link>
+            <Link href="#" aria-label="TikTok">
+              <FaTiktok className="text-gray-600 hover:text-[#010101] w-5 h-5 transition-colors duration-200" />
             </Link>
           </div>
         </div>

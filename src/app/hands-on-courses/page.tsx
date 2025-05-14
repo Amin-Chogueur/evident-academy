@@ -37,7 +37,7 @@ export default function HandsOnCourses() {
             title="Endodontics for the Daily Practice"
             description="This is the time to start 
             performing excellent root canal treatments!"
-            imageUrl="/Endodontics.jpg"
+            imageUrl="/Endodontics.png"
             onShowModel={setShowModel}
           >
             <ul className="list-disc p-5">
