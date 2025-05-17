@@ -5,7 +5,9 @@ import { useState } from "react";
 import { Menu, X, ShoppingCart } from "lucide-react";
 // import { Search } from "lucide-react";
 import { usePathname } from "next/navigation";
+
 import Image from "next/image";
+import { useAuth } from "@/context/AuthContext";
 
 const navLinks = [
   { name: "Home", href: "/" },
@@ -14,16 +16,14 @@ const navLinks = [
   { name: "Conferences", href: "/conferences" },
   { name: "Academy Club", href: "/evident-academy-club" },
   { name: "FAQ", href: "/faq" },
-  { name: "Follow Us", href: "/follow-us" },
   { name: "Contact", href: "/contact-us" },
-  { name: "Dashboard", href: "/dashboard" },
 ];
 
 export default function Header() {
   const pathName = usePathname();
+  const { isMounted, user, onLogout } = useAuth();
 
   const [isOpen, setIsOpen] = useState(false);
-  // const [search, setSearch] = useState("");
 
   return (
     <header className="sticky top-0 z-50 bg-gray-100 shadow-md">
@@ -48,36 +48,60 @@ export default function Header() {
               {link.name}
             </Link>
           ))}
+          {isMounted &&
+            (user?.role === "admin" ? (
+              <Link
+                href={"/dashboard"}
+                className={` hover:text-blue-600 transition text-[14px] ${
+                  pathName === "/dashboard"
+                    ? "text-blue-600 font-bold"
+                    : "text-gray-700"
+                } `}
+              >
+                Dashboard
+              </Link>
+            ) : null)}
         </nav>
 
-        {/* Search + Cart */}
+        {/*  Cart */}
         <div className="flex items-center gap-4">
-          {/* <div className="hidden xl:flex items-center border border-gray-300 rounded-md px-2">
-            <Search className="text-gray-500 w-4 h-4" />
-
-            <input
-              type="text"
-              placeholder="Search..."
-              value={search}
-              onChange={(e) => setSearch(e.target.value)}
-              className="outline-none px-2 py-1 w-40 text-sm"
-            />
-          </div> */}
-
           <Link href="/cart" className="relative">
             <ShoppingCart className="w-6 h-6 text-gray-700 hover:text-blue-600 transition" />
             {/* You can add a badge with item count if needed */}
           </Link>
-          <Link
-            className={` hover:text-blue-600 transition text-[14px] ${
-              pathName === "/register"
-                ? "text-blue-600 font-bold"
-                : "text-gray-700"
-            } `}
-            href={"/register"}
-          >
-            Register
-          </Link>
+
+          {isMounted &&
+            (!user ? (
+              <>
+                <Link
+                  className={` hover:text-blue-600 transition text-[14px] ${
+                    pathName === "/register"
+                      ? "text-blue-600 font-bold"
+                      : "text-gray-700"
+                  } `}
+                  href={"/register"}
+                >
+                  Register
+                </Link>
+                <Link
+                  className={` hover:text-blue-600 transition text-[14px] ${
+                    pathName === "/login"
+                      ? "text-blue-600 font-bold"
+                      : "text-gray-700"
+                  } `}
+                  href={"/login"}
+                >
+                  Login
+                </Link>
+              </>
+            ) : (
+              <button
+                onClick={onLogout}
+                className="bg-black p-2 text-white rounded-xl cursor-pointer"
+              >
+                Logout
+              </button>
+            ))}
 
           {/* Mobile menu button */}
 
@@ -105,18 +129,20 @@ export default function Header() {
                 {link.name}
               </Link>
             ))}
-
-            {/* Mobile search */}
-            {/* <div className="flex items-center border border-gray-300 rounded-md px-2">
-              <Search className="text-gray-500 w-4 h-4" />
-              <input
-                type="text"
-                placeholder="Search..."
-                value={search}
-                onChange={(e) => setSearch(e.target.value)}
-                className="outline-none px-2 py-1 w-full text-sm"
-              />
-            </div> */}
+            {isMounted &&
+              (user?.role === "admin" ? (
+                <Link
+                  href={"/dashboard"}
+                  onClick={() => setIsOpen(false)}
+                  className={` hover:text-blue-600 transition text-[14px] ${
+                    pathName === "/dashboard"
+                      ? "text-blue-600 font-bold"
+                      : "text-gray-700"
+                  } `}
+                >
+                  Dashboard
+                </Link>
+              ) : null)}
           </nav>
         </div>
       )}

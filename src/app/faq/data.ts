@@ -71,7 +71,7 @@ export const faqData = [
         text: " Articles to read every month",
       },
       {
-        text: " Discounted rates for courses and conferences",
+        text: " Discounted rates for courses &  conferences",
       },
     ],
   },

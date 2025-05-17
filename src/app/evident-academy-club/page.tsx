@@ -36,7 +36,7 @@ export default function EvidentAcademyClub() {
             <li>Exclusive online courses for members every month</li>
             <li>Clinical case discussions and Q & A sessions </li>
             <li>Articles to read every month</li>
-            <li>Discounted rates for courses and conferences</li>
+            <li>Discounted rates on courses & conferences</li>
           </ul>
         </div>
 

@@ -5,8 +5,9 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Country, State } from "country-state-city";
+
 import type { IState } from "country-state-city";
-import PaymentOptions from "@/components/PaymentOptions";
+import { useAuth } from "@/context/AuthContext";
 
 const formSchema = z.object({
   fullName: z.string().min(1, "Full name is required"),
@@ -19,11 +20,16 @@ const formSchema = z.object({
   country: z.string().min(1, "Country is required"),
   city: z.string().min(1, "City is required"),
   service: z.string().min(1, "Service is required"),
+  password: z
+    .string()
+    .min(6, "Password must be at leat 6 characters")
+    .max(12, "Password too large"),
 });
 
-type FormData = z.infer<typeof formSchema>;
+export type RegisterFormData = z.infer<typeof formSchema>;
 
 export default function Register() {
+  const { onRegister } = useAuth();
   const countries = Country.getAllCountries();
   const [cities, setCities] = useState<IState[]>([]);
 
@@ -33,8 +39,7 @@ export default function Register() {
     watch,
     setValue,
     formState: { errors, isSubmitted, isValid },
-    reset,
-  } = useForm<FormData>({
+  } = useForm<RegisterFormData>({
     mode: "onChange",
     resolver: zodResolver(formSchema),
     criteriaMode: "all",
@@ -46,6 +51,7 @@ export default function Register() {
       country: "",
       city: "",
       service: "",
+      password: "",
     },
   });
 
@@ -62,14 +68,9 @@ export default function Register() {
     }
   }, [selectedCountry, setValue]);
 
-  const onSubmit = (data: FormData) => {
-    console.log("Submitted Data:", data);
-    reset();
-  };
-
   return (
     <form
-      onSubmit={handleSubmit(onSubmit)}
+      onSubmit={handleSubmit(onRegister)}
       className="max-w-4xl mx-auto px-4 py-12 bg-gray-100 rounded-2xl space-y-5"
     >
       <h1 className="text-[48px] font-bold text-center">Register</h1>
@@ -190,17 +191,31 @@ export default function Register() {
           className="border rounded p-2"
         >
           <option value="">-- Please choose an option --</option>
-          <option value="hands-on">Hands-on Dental Courses</option>
-          <option value="online">Online Dental Courses</option>
-          <option value="club">Join the Academy Club</option>
+          <option value="Hands-on Dental Courses">
+            Hands-on Dental Courses
+          </option>
+          <option value="Online Dental Courses">Online Dental Courses</option>
+          <option value="Join the Academy Club">Join the Academy Club</option>
         </select>
         {errors.service && (
           <p className="text-red-600">{errors.service.message}</p>
         )}
       </div>
-
-      {/* Payment Options */}
-      <PaymentOptions />
+      {/* paasword */}
+      <div>
+        <label className="block font-semibold mb-1">
+          Password<span className="text-red-700">*</span>:
+        </label>
+        <input
+          type="password"
+          {...register("password")}
+          placeholder="******"
+          className="w-full border rounded-lg px-4 py-2"
+        />
+        {errors.password && (
+          <p className="text-red-600">{errors.password.message}</p>
+        )}
+      </div>
 
       <button
         type="submit"
