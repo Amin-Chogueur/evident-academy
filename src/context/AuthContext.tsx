@@ -44,6 +44,7 @@ export default function AuthContextProvider({
     }
     setIsMounted(true);
   }, []);
+
   async function onLogin(userData: LoginFormData) {
     try {
       setLoading(true);
@@ -91,7 +92,6 @@ export default function AuthContextProvider({
       localStorage.removeItem("user");
       setUser(null);
       toast.success("Logout success");
-      router.push("/");
     } catch (error) {
       if (axios.isAxiosError(error)) {
         toast.error("Logout failed");

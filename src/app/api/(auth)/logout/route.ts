@@ -10,7 +10,7 @@ export async function GET() {
       path: "/",
       expires: new Date(0),
     });
-    console.log("Logout successful");
+
     return response;
   } catch (error) {
     console.log(error);
