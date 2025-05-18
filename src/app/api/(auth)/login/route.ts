@@ -57,9 +57,6 @@ export async function POST(req: NextRequest) {
     return res;
   } catch (error) {
     console.log(error);
-    return NextResponse.json(
-      { message: "failed to register" },
-      { status: 500 }
-    );
+    return NextResponse.json({ message: "failed to login" }, { status: 500 });
   }
 }

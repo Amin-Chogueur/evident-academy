@@ -4,20 +4,10 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useAuth } from "@/context/AuthContext";
+import Input from "@/components/common/Input";
+import { loginFormSchema } from "@/lib/authValidation/formSchema";
 
-const formSchema = z.object({
-  email: z
-    .string()
-    .min(1, { message: "Email is required" })
-    .email({ message: "Invalid email" }),
-
-  password: z
-    .string()
-    .min(6, "Password must be at leat 6 characters")
-    .max(12, "Password too large"),
-});
-
-export type LoginFormData = z.infer<typeof formSchema>;
+export type LoginFormData = z.infer<typeof loginFormSchema>;
 
 export default function Login() {
   const { loading, onLogin } = useAuth();
@@ -27,7 +17,7 @@ export default function Login() {
     formState: { errors, isSubmitted, isValid },
   } = useForm<LoginFormData>({
     mode: "onChange",
-    resolver: zodResolver(formSchema),
+    resolver: zodResolver(loginFormSchema),
     criteriaMode: "all",
     defaultValues: {
       email: "",
@@ -35,49 +25,38 @@ export default function Login() {
     },
   });
 
+  const loginInputs = [
+    {
+      type: "email",
+      placeholder: "example@email.com",
+      lable: "Email",
+      error: errors.email,
+      register: register("email"),
+    },
+    {
+      type: "password",
+      placeholder: "******",
+      lable: "Password",
+      error: errors.password,
+      register: register("password"),
+    },
+  ];
   return (
     <form
       onSubmit={handleSubmit(onLogin)}
       className="max-w-4xl mx-auto px-4 py-12 bg-gray-100 rounded-2xl space-y-5"
     >
       <h1 className="text-[48px] font-bold text-center">Login</h1>
-
-      {/* Email */}
-      <div>
-        <label className="block font-semibold mb-1">
-          Email<span className="text-red-700">*</span>:
-        </label>
-        <input
-          type="email"
-          {...register("email")}
-          placeholder="example@email.com"
-          className="w-full border rounded-lg px-4 py-2"
-        />
-        {errors.email && <p className="text-red-600">{errors.email.message}</p>}
-      </div>
-
-      {/* paasword */}
-      <div>
-        <label className="block font-semibold mb-1">
-          Password<span className="text-red-700">*</span>:
-        </label>
-        <input
-          type="password"
-          {...register("password")}
-          placeholder="******"
-          className="w-full border rounded-lg px-4 py-2"
-        />
-        {errors.password && (
-          <p className="text-red-600">{errors.password.message}</p>
-        )}
-      </div>
+      {loginInputs.map((input, index) => (
+        <Input key={index} {...input} />
+      ))}
 
       <button
         type="submit"
         disabled={!isValid || isSubmitted || loading}
-        className="bg-black hover:bg-[#222] p-2 rounded text-white disabled:bg-gray-500 disabled:cursor-not-allowed"
+        className="bg-black hover:bg-[#222] p-2 rounded text-white disabled:bg-gray-500 disabled:cursor-not-allowed cursor-pointer"
       >
-       {loading ? "In Process..." : "Login"}
+        {loading ? "In Process..." : "Login"}
       </button>
     </form>
   );
