@@ -2,6 +2,7 @@ import React from "react";
 import UserItem from "./UserItem";
 
 type UserType = {
+  _id: string;
   fullName: string;
   email: string;
   mobile: string;
@@ -10,6 +11,7 @@ type UserType = {
   city: string;
   service: string;
   createdAt: string;
+  role: string;
 };
 
 type Props = {
@@ -18,14 +20,22 @@ type Props = {
 
 export default function UserCardList({ users }: Props) {
   return (
-    <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-      {users.map((user) => {
-        if (user.email === "chogueuramine@gmail.com") {
-          return;
-        } else {
-          return <UserItem user={user} key={user.email} />;
-        }
-      })}
+    <div className="overflow-x-auto">
+      <table className="min-w-full bg-white border border-gray-200 rounded-lg shadow-sm">
+        <thead>
+          <tr className="bg-gray-100 text-gray-700 text-left">
+            <th className="px-6 py-3 text-sm font-semibold">Full Name</th>
+            <th className="px-6 py-3 text-sm font-semibold">Email</th>
+            <th className="px-6 py-3 text-sm font-semibold">Service</th>
+            <th className="px-6 py-3 text-sm font-semibold">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {users.map((user) => (
+            <UserItem key={user.email} user={user} />
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 }

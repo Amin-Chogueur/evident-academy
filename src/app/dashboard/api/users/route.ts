@@ -7,8 +7,9 @@ export async function GET() {
   try {
     const users = await User.find(
       {},
-      "fullName email mobile clinic country city service createdAt"
+      "fullName email mobile clinic country city service createdAt role"
     );
+
     return NextResponse.json(users);
   } catch (error) {
     console.log(error);

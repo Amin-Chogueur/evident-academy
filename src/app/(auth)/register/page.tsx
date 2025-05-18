@@ -29,7 +29,7 @@ const formSchema = z.object({
 export type RegisterFormData = z.infer<typeof formSchema>;
 
 export default function Register() {
-  const { onRegister } = useAuth();
+  const { loading, onRegister } = useAuth();
   const countries = Country.getAllCountries();
   const [cities, setCities] = useState<IState[]>([]);
 
@@ -38,6 +38,7 @@ export default function Register() {
     handleSubmit,
     watch,
     setValue,
+    reset,
     formState: { errors, isSubmitted, isValid },
   } = useForm<RegisterFormData>({
     mode: "onChange",
@@ -67,10 +68,14 @@ export default function Register() {
       setCities([]);
     }
   }, [selectedCountry, setValue]);
+  function handleRegister(data: RegisterFormData) {
+    onRegister(data);
+    reset();
+  }
 
   return (
     <form
-      onSubmit={handleSubmit(onRegister)}
+      onSubmit={handleSubmit(handleRegister)}
       className="max-w-4xl mx-auto px-4 py-12 bg-gray-100 rounded-2xl space-y-5"
     >
       <h1 className="text-[48px] font-bold text-center">Register</h1>
@@ -219,10 +224,10 @@ export default function Register() {
 
       <button
         type="submit"
-        disabled={!isValid && isSubmitted}
+        disabled={!isValid || isSubmitted || loading}
         className="bg-black hover:bg-[#222] p-2 rounded text-white disabled:bg-gray-500 disabled:cursor-not-allowed"
       >
-        Register
+        {loading ? "In Process..." : "Register"}
       </button>
     </form>
   );

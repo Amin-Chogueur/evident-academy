@@ -20,7 +20,7 @@ const formSchema = z.object({
 export type LoginFormData = z.infer<typeof formSchema>;
 
 export default function Login() {
-  const { onLogin } = useAuth();
+  const { loading, onLogin } = useAuth();
   const {
     register,
     handleSubmit,
@@ -74,10 +74,10 @@ export default function Login() {
 
       <button
         type="submit"
-        disabled={!isValid && isSubmitted}
+        disabled={!isValid || isSubmitted || loading}
         className="bg-black hover:bg-[#222] p-2 rounded text-white disabled:bg-gray-500 disabled:cursor-not-allowed"
       >
-        Login
+       {loading ? "In Process..." : "Login"}
       </button>
     </form>
   );

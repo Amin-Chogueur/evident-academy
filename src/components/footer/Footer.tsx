@@ -1,3 +1,4 @@
+"use client";
 import Link from "next/link";
 import { Mail, Phone, MapPin } from "lucide-react";
 import {
@@ -8,8 +9,14 @@ import {
   FaTiktok,
 } from "react-icons/fa";
 import Image from "next/image";
+import { useState } from "react";
+import Model from "../common/Model";
+import CancellationPolicy from "./CancellationPolicy";
+import TermsAndConditions from "./TermsAndConditions";
 
 export default function Footer() {
+  const [showModel, setShowModel] = useState(false);
+  const [currentComponet, setCurrentComponet] = useState("");
   return (
     <footer className="bg-gray-100 text-gray-700 mt-8">
       <div className="container mx-auto px-4 py-10 grid grid-cols-1 md:grid-cols-4 gap-8 ">
@@ -66,21 +73,34 @@ export default function Footer() {
           <h3 className="text-lg font-semibold mb-4">Legal</h3>
           <ul className="space-y-2 text-sm">
             <li>
-              <Link href="/privacy-policy" className="hover:underline">
-                Privacy Policy
-              </Link>
+              <button
+                onClick={() => {
+                  setShowModel(true);
+                  setCurrentComponet("terms");
+                }}
+                className="hover:underline"
+              >
+                Terms & Condition
+              </button>
             </li>
             <li>
-              <Link href="/terms-of-service" className="hover:underline">
-                Terms of Service
-              </Link>
-            </li>
-            <li>
-              <Link href="/cookies" className="hover:underline">
-                Cookie Policy
-              </Link>
+              <button
+                onClick={() => {
+                  setShowModel(true);
+                  setCurrentComponet("cancellation");
+                }}
+                className="hover:underline"
+              >
+                Cancellation & Refund Policy
+              </button>
             </li>
           </ul>
+          {showModel && (
+            <Model setShowModel={setShowModel}>
+              {currentComponet === "cancellation" && <CancellationPolicy />}
+              {currentComponet === "terms" && <TermsAndConditions />}
+            </Model>
+          )}
         </div>
       </div>
 

@@ -43,7 +43,7 @@ export async function POST(req: NextRequest) {
 
     const hashedPassword = await bcryptjs.hash(password, 10);
     let role;
-    if (email === "chogueuramine@gmail.com") {
+    if (email === "evidentAcademy@gmail.com") {
       role = "admin";
     } else {
       role = "user";
@@ -60,7 +60,7 @@ export async function POST(req: NextRequest) {
       password: hashedPassword,
       role,
     });
-    return NextResponse.json({ message: "register succuss" }, { status: 201 });
+    return NextResponse.json({ message: "Register success" }, { status: 201 });
   } catch (error) {
     console.log(error);
     return NextResponse.json(
