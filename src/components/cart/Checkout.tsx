@@ -4,6 +4,7 @@ import { useAppSelector } from "@/store/hooks";
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 import { useState } from "react";
 import axios from "axios";
+const base_Uri = process.env.NEXT_PUBLIC_BASE_URL;
 
 export default function Checkout() {
   const cart = useAppSelector((state) => state.cart.cart);
@@ -48,7 +49,7 @@ export default function Checkout() {
             onApprove={async (data) => {
               try {
                 const res = await axios.post(
-                  "http://localhost:3000/api/paypal/checkout",
+                  `${base_Uri}/api/paypal/checkout`,
                   {
                     orderID: data.orderID,
                   }
