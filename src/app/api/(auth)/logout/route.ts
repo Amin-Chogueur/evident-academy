@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 export async function GET() {
   try {
     const response = NextResponse.redirect(
-      new URL("/", "http://localhost:3000/")
+      new URL("/", "https://evident-academy.vercel.app/")
     );
     response.cookies.set("token", "", {
       httpOnly: true,
