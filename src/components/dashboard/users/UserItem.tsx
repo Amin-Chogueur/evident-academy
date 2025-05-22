@@ -31,7 +31,7 @@ export default function UserItem({ user }: { user: UserType }) {
   };
 
   return (
-    <tr className="border-t">
+    <tr className="border-t hover:bg-gray-200">
       <td className="px-6 py-4 text-sm text-gray-800">{user.fullName}</td>
       <td className="px-6 py-4 text-sm text-gray-600">{user.email}</td>
       <td className="px-6 py-4 text-sm text-gray-600">{user.service}</td>

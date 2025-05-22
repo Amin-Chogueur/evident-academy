@@ -3,12 +3,11 @@
 import Accordion from "@/components/common/Accordion";
 import Card from "@/components/common/Card";
 
-import Link from "next/link";
 import { useState } from "react";
 import { faqData } from "./data";
 import Model from "@/components/common/Model";
 import BackgroundImage from "@/components/common/backgroundImage";
-
+import { courseDetails } from "./data";
 export default function HandsOnCourses() {
   const [showModel, setShowModel] = useState(false);
   return (
@@ -54,14 +53,19 @@ export default function HandsOnCourses() {
             </ul>
           </Card>
           {/* Images */}
-
-          {/* Course Info */}
           {showModel && (
             <Model setShowModel={setShowModel}>
               {" "}
-              <div className="space-y-6 max-w-4xl mx-auto text-lg   p-5 rounded-2xl ">
-                {/* Top Info Section */}
+              <div className="px-5" dangerouslySetInnerHTML={courseDetails} />
+            </Model>
+          )}
 
+          {/* Course Info */}
+          {/* {showModel && (
+            <Model setShowModel={setShowModel}>
+              {" "}
+              <div className="space-y-6 max-w-4xl mx-auto text-lg   p-5 rounded-2xl ">
+              
                 <div className="flex flex-col md:flex-row justify-center items-center gap-y-4 gap-x-10 text-center">
                   <p>
                     <strong className="text-[#a6a6a6]">Nearest date:</strong>{" "}
@@ -75,7 +79,7 @@ export default function HandsOnCourses() {
 
                 <hr className="border-t-2 border-[#a6a6a6] my-4" />
 
-                {/* Course Program Section */}
+               
                 <div>
                   <p className="font-bold text-xl mt-6 text-[#a6a6a6] text-center">
                     Course Program:
@@ -108,7 +112,7 @@ export default function HandsOnCourses() {
                   </div>
                 </div>
 
-                {/* Lecturer and Cost Info */}
+                
                 <p className="font-semibold text-xl mt-6 text-[#a6a6a6]  text-center">
                   About the course lecturer:
                 </p>
@@ -123,7 +127,7 @@ export default function HandsOnCourses() {
                   on all hands-on courses
                 </p>
 
-                {/* Agenda Section */}
+                
                 <div>
                   <p className="font-semibold text-xl mt-6">Agenda:</p>
                   <ul className="list-disc list-inside ml-4">
@@ -148,7 +152,7 @@ export default function HandsOnCourses() {
                 </Link>
               </div>
             </Model>
-          )}
+          )} */}
           <Accordion content={faqData} />
         </div>
       </section>

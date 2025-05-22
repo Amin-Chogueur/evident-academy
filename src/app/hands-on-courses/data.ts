@@ -129,3 +129,81 @@ export const faqData = [
     ],
   },
 ];
+
+export const courseDetails = {
+  __html: `
+    <div style="max-width: 64rem; margin: auto; padding: 1.25rem; border-radius: 1rem; font-size: 1.125rem; line-height: 1.75rem;">
+      <!-- Top Info Section -->
+      <div style="display: flex; flex-direction: column; gap: 1rem; text-align: center;" class="md:flex-row justify-center items-center gap-x-10">
+        <p>
+          <strong style="color: #a6a6a6;">Nearest date:</strong> 25/05/2025
+        </p>
+        <p>
+          <strong style="color: #a6a6a6;">Next dates:</strong> 20/10/2025
+        </p>
+      </div>
+
+      <hr style="border-top: 2px solid #a6a6a6; margin: 1rem 0;" />
+
+      <!-- Course Program Section -->
+      <div>
+        <p style="font-weight: bold; font-size: 1.25rem; margin-top: 1.5rem; text-align: center; color: #a6a6a6;">
+          Course Program:
+        </p>
+        <div style="display: flex; flex-direction: column; gap: 2rem; margin-top: 1rem;" class="md:flex-row justify-between">
+          <div style="flex: 1;">
+            <p style="font-weight: 600;">DAY 1 – Primary Endo from A to Z</p>
+            <ul style="list-style-type: disc; margin-left: 1rem;">
+              <li>Diagnosis & treatment planning</li>
+              <li>Isolation &rubber dam techniques</li>
+              <li>Access cavity</li>
+              <li>Working length determination & instrumentation</li>
+              <li>Irrigation protocol</li>
+              <li>3D Obturation</li>
+            </ul>
+          </div>
+          <div style="flex: 1;">
+            <p style="font-weight: 600;">DAY 2 – Retreatment from A to Z</p>
+            <ul style="list-style-type: disc; margin-left: 1rem;">
+              <li>Case selection</li>
+              <li>Access through crown/indirect restoration</li>
+              <li>Disobturation</li>
+              <li>Ledge bypass</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Lecturer and Cost Info -->
+      <p style="font-weight: 600; font-size: 1.25rem; margin-top: 1.5rem; text-align: center; color: #a6a6a6;">
+        About the course lecturer:
+      </p>
+
+      <p>
+        <strong>Course cost:</strong> The cost includes lunch & coffee breaks
+      </p>
+
+      <p>
+        <strong>10% Discount</strong> for Evident Academy Club members on all hands-on courses
+      </p>
+
+      <!-- Agenda Section -->
+      <div>
+        <p style="font-weight: 600; font-size: 1.25rem; margin-top: 1.5rem;">
+          Agenda:
+        </p>
+        <ul style="list-style-type: disc; margin-left: 1rem;">
+          <li>09:00 – 12:00 Hands-on practice</li>
+          <li>12:00 – 13:00 Lunch</li>
+          <li>13:00 – 14:30 Hands-on practice</li>
+          <li>14:30 – 15:30 Coffee break</li>
+          <li>15:30 – 16:30 Hands-on practice</li>
+        </ul>
+      </div>
+
+      <p style="margin-top: 1.5rem;">
+        You will have access to cutting-edge equipment and a comprehensive selection of the latest materials and instruments available on the market.
+      </p>
+    </div>
+  `,
+};

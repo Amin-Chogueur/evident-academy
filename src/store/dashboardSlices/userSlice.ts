@@ -44,7 +44,7 @@ export const deleteUser = createAsyncThunk<
 >("user/deleteUser", async (id) => {
   try {
     const res = await axios.delete(`${base_url}/dashboard/api/users/${id}`);
-    console.log(res.data);
+
     return res.data;
   } catch (error) {
     console.log(error);
@@ -68,6 +68,7 @@ const userSlice = createSlice({
       .addCase(fetchUsers.rejected, (state, action) => {
         state.loading = false;
         state.error = action.error.message || "Failed to fetch users";
+        toast.error("Failed to fetch users");
       })
       //delete User
       .addCase(deleteUser.pending, (state) => {

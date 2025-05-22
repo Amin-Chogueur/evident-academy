@@ -23,7 +23,7 @@ export default function UserCardList({ users }: Props) {
     <div className="overflow-x-auto">
       <table className="min-w-full bg-white border border-gray-200 rounded-lg shadow-sm">
         <thead>
-          <tr className="bg-gray-100 text-gray-700 text-left">
+          <tr className="bg-gray-100  text-left">
             <th className="px-6 py-3 text-sm font-semibold">Full Name</th>
             <th className="px-6 py-3 text-sm font-semibold">Email</th>
             <th className="px-6 py-3 text-sm font-semibold">Service</th>

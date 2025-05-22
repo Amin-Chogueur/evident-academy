@@ -12,9 +12,9 @@ export default function Users() {
   const [filter, setFilter] = useState("All");
   const [loading, setLoading] = useState(true);
   // Filter out specific email
-  console.log(users);
+
   const realUsers = users.filter((user) => user.role !== "admin");
-  console.log(realUsers);
+
   // Apply search and filter
   const filteredUsers = realUsers.filter((user) => {
     const matchesSearch =
