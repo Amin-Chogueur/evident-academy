@@ -11,7 +11,7 @@ export async function POST(req: NextRequest) {
     const { email, password } = data;
     if (!email || !password) {
       return NextResponse.json(
-        { message: "faild to register, All the fields are required" },
+        { message: "Email and password are required." },
         { status: 400 }
       );
     }
@@ -28,7 +28,7 @@ export async function POST(req: NextRequest) {
     const isPasswordCorrect = await bcryptjs.compare(password, user.password);
     if (!isPasswordCorrect) {
       return NextResponse.json(
-        { message: "faild to Login, Wrong password" },
+        { message: "failed to Login, Wrong password" },
         { status: 400 }
       );
     }
@@ -42,7 +42,7 @@ export async function POST(req: NextRequest) {
     });
 
     const res = NextResponse.json({
-      message: "Logged in success",
+      message: "Login successful.",
       role: user.role,
       userName: user.fullName,
     });
@@ -58,6 +58,9 @@ export async function POST(req: NextRequest) {
     return res;
   } catch (error) {
     console.log(error);
-    return NextResponse.json({ message: "failed to login" }, { status: 500 });
+    return NextResponse.json(
+      { message: "Internal server error during login." },
+      { status: 500 }
+    );
   }
 }

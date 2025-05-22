@@ -15,7 +15,7 @@ export async function GET() {
     await connectDb();
     const allCourses = await Course.find(
       {},
-      "_id title description language mode level price moreInfo category"
+      "_id title description language mode level price moreInfo category image"
     );
 
     return NextResponse.json({ courses: allCourses }, { status: 200 });

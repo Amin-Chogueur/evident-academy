@@ -6,6 +6,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useAuth } from "@/context/AuthContext";
 import Input from "@/components/common/Input";
 import { loginFormSchema } from "@/lib/authValidation/formSchema";
+import Link from "next/link";
 
 export type LoginFormData = z.infer<typeof loginFormSchema>;
 
@@ -58,6 +59,13 @@ export default function Login() {
       >
         {loading ? "In Process..." : "Login"}
       </button>
+      <p className="text-sm text-gray-600">
+        Don&apos;t have an account?{" "}
+        <Link href="/register" className="text-blue-600 underline">
+          Register here
+        </Link>
+        .
+      </p>
     </form>
   );
 }

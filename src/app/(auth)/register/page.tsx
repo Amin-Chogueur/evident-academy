@@ -10,6 +10,7 @@ import type { IState } from "country-state-city";
 import { useAuth } from "@/context/AuthContext";
 import { registerFormSchema } from "@/lib/authValidation/formSchema";
 import Input from "@/components/common/Input";
+import Link from "next/link";
 
 export type RegisterFormData = z.infer<typeof registerFormSchema>;
 
@@ -146,6 +147,13 @@ export default function Register() {
       >
         {loading ? "In Process..." : "Register"}
       </button>
+      <p className="text-sm text-gray-600">
+        Already have an account?{" "}
+        <Link href="/login" className="text-blue-600 underline">
+          Log in here
+        </Link>
+        .
+      </p>
     </form>
   );
 }

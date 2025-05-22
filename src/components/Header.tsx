@@ -8,6 +8,7 @@ import { usePathname } from "next/navigation";
 
 import Image from "next/image";
 import { useAuth } from "@/context/AuthContext";
+import { useAppSelector } from "@/store/hooks";
 
 const navLinks = [
   { name: "Home", href: "/" },
@@ -20,6 +21,7 @@ const navLinks = [
 ];
 
 export default function Header() {
+  const cart = useAppSelector((state) => state.cart.cart);
   const pathName = usePathname();
   const { isMounted, user, onLogout } = useAuth();
 
@@ -65,9 +67,11 @@ export default function Header() {
 
         {/*  Cart */}
         <div className="flex items-center gap-4">
-          <Link href="/cart" className="relative">
+          <Link href="/cart" className="relative flex">
             <ShoppingCart className="w-6 h-6 text-gray-700 hover:text-blue-600 transition" />
-            {/* You can add a badge with item count if needed */}
+            <span className="absolute top-[-12px] right-[-15px] text-red-600 text-sm">
+              ({cart.length})
+            </span>
           </Link>
 
           {isMounted &&

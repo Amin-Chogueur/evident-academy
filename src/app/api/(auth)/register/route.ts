@@ -28,7 +28,7 @@ export async function POST(req: NextRequest) {
       !password
     ) {
       return NextResponse.json(
-        { message: "faild to register, All the fields are required" },
+        { message: "All fields are required." },
         { status: 400 }
       );
     }
@@ -36,14 +36,14 @@ export async function POST(req: NextRequest) {
     const isUserExist = await User.findOne({ email });
     if (isUserExist) {
       return NextResponse.json(
-        { message: "faild to register, this Email is already exist" },
+        { message: "Email already in use. " },
         { status: 400 }
       );
     }
 
     const hashedPassword = await bcryptjs.hash(password, 10);
     let role;
-    if (email === "evidentAcademy@gmail.com") {
+    if (email === process.env.ADMIN_EMAILS) {
       role = "admin";
     } else {
       role = "user";
@@ -60,11 +60,14 @@ export async function POST(req: NextRequest) {
       password: hashedPassword,
       role,
     });
-    return NextResponse.json({ message: "Register success" }, { status: 201 });
+    return NextResponse.json(
+      { message: "Registration successful." },
+      { status: 201 }
+    );
   } catch (error) {
     console.log(error);
     return NextResponse.json(
-      { message: "failed to register" },
+      { message: "Internal server error during registration." },
       { status: 500 }
     );
   }
