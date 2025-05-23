@@ -1,17 +1,31 @@
 "use client";
 
-import { useAppSelector } from "@/store/hooks";
 import CartItem from "@/components/cart/CartItem";
 import { redirect } from "next/navigation";
 
-export default function Cart({ token }: { token: string | undefined }) {
-  const cart = useAppSelector((state) => state.cart.cart);
-  const totalItems = cart.length;
-  const totalPrice = cart.reduce(
-    (acc, item) => acc + parseFloat(item.price),
-    0
-  );
+import { CourseType } from "@/store/dashboardSlices/courseSlice";
+import Spinner from "../common/Spinner";
 
+type Cartprops = {
+  token: string | undefined;
+  totalItems: number;
+  totalPrice: string | undefined;
+  loading: boolean;
+  cartData: CourseType[] | undefined;
+};
+
+export default function Cart({
+  token,
+  totalItems,
+  totalPrice,
+  loading,
+  cartData,
+}: Cartprops) {
+  function handleCheckout() {
+    if (!token) {
+      redirect("/login"); // Redirect if not logged in
+    }
+  }
   if (totalItems === 0) {
     return (
       <p className="text-center text-gray-500 mt-10 text-xl">
@@ -19,20 +33,16 @@ export default function Cart({ token }: { token: string | undefined }) {
       </p>
     );
   }
-
-  function handleCheckout() {
-    if (!token) {
-      redirect("/login"); // Redirect if not logged in
-    }
-    console.log("checkout seccuss");
+  if (loading) {
+    return <Spinner />;
   }
   return (
     <div className="max-w-5xl mx-auto px-4 pt-10">
       <h2 className="text-3xl font-bold mb-6">Your Cart</h2>
 
       <div className="space-y-6 mb-10">
-        {cart.map((item) => (
-          <CartItem key={item.id} item={item} />
+        {cartData?.map((item) => (
+          <CartItem key={item._id} item={item} />
         ))}
       </div>
 
@@ -40,7 +50,7 @@ export default function Cart({ token }: { token: string | undefined }) {
         <h3 className="text-xl font-semibold mb-2">Cart Summary</h3>
         <p className="text-gray-700 mb-1">Total Courses: {totalItems}</p>
         <p className="text-gray-700 font-medium text-lg">
-          Total Price: ${totalPrice.toFixed(2)}
+          Total Price: ${totalPrice}
         </p>
 
         {!token && (

@@ -34,7 +34,7 @@ export async function POST(req: NextRequest) {
     }
 
     const tokenData = {
-      userName: user.fullName,
+      user: user.email,
       role: user.role,
     };
     const token = jwt.sign(tokenData, process.env.TOKEN_SECRET!, {
@@ -50,7 +50,7 @@ export async function POST(req: NextRequest) {
     res.cookies.set("token", token, {
       httpOnly: true,
       secure: true,
-      sameSite: "strict",
+      sameSite: "lax", // or "strict" in production,
       path: "/",
       maxAge: 60 * 60 * 24 * 7, // 7 days
     });

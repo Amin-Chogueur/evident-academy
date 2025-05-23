@@ -1,12 +1,13 @@
 "use client";
 
-import { ItemType, removeFromCart } from "@/store/clientSlices/cartSlice";
+import { removeFromCart } from "@/store/clientSlices/cartSlice";
 import { useAppDispatch } from "@/store/hooks";
 import Image from "next/image";
 import React from "react";
 import { Trash2 } from "lucide-react";
+import { CourseType } from "@/store/dashboardSlices/courseSlice";
 
-export default function CartItem({ item }: { item: ItemType }) {
+export default function CartItem({ item }: { item: CourseType }) {
   const dispatch = useAppDispatch();
 
   return (
@@ -14,13 +15,14 @@ export default function CartItem({ item }: { item: ItemType }) {
       <div className="flex items-center gap-4">
         <div className="w-20 h-20 relative shrink-0">
           <Image
-            src={item.imageUrl}
+            src={item.image}
             alt={item.title}
             fill
             className="rounded-md object-cover"
           />
         </div>
         <div>
+          <p className="text-sm text-gray-500">Id:{item._id}</p>
           <h3 className="text-base sm:text-lg font-medium">{item.title}</h3>
           <p className="text-sm text-gray-500">Category: {item.category}</p>
           <p className="text-blue-600 font-semibold mt-1">${item.price}</p>
@@ -28,7 +30,7 @@ export default function CartItem({ item }: { item: ItemType }) {
       </div>
       <div className="ml-auto">
         <button
-          onClick={() => dispatch(removeFromCart(item.id))}
+          onClick={() => dispatch(removeFromCart(item._id))}
           className="text-red-500 hover:text-red-700 transition-colors"
           aria-label="Remove from cart"
         >

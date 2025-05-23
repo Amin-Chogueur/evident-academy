@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import Accordion from "@/components/common/Accordion";
 import { faqData } from "./data";
 
@@ -5,10 +6,10 @@ import BackgroundImage from "@/components/common/backgroundImage";
 
 import Course from "@/components/common/Course";
 
-import { getCourses } from "@/lib/helpers/getCourses";
+import { getCoursesFromDb } from "@/lib/helpers/getCourses";
 
 export default async function HandsOnCourses() {
-  const allCourses = await getCourses();
+  const allCourses = await getCoursesFromDb();
   const handsOnCourses = allCourses.filter(
     (course) => course.category === "Hands-on Dental Courses"
   );

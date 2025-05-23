@@ -25,11 +25,9 @@ export default function Card({
   language,
   price,
   id,
-  category,
   onShowModel,
 }: CardType) {
   const dispatch = useAppDispatch();
-  const course = { title, price, id, imageUrl, category };
 
   return (
     <div className="flex flex-col gap-5 lg:flex-row justify-between mb-10 bg-gray-200 p-6 lg:p-6 rounded-2xl">
@@ -70,7 +68,7 @@ export default function Card({
           </button>
           <button
             className="bg-white  border block w-fit mx-auto md:ml-auto hover:bg-black hover:text-white cursor-pointer p-2 rounded-2xl text-black text-[24px] md:text-[28px] font-bold"
-            onClick={() => dispatch(addToCart(course))}
+            onClick={() => dispatch(addToCart(id))}
           >
             Book your course
           </button>

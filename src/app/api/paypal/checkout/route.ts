@@ -1,20 +1,19 @@
 // app/api/paypal/checkout/route.ts
+import { cookies } from "next/headers";
+import jwt, { JwtPayload } from "jsonwebtoken";
 import { NextRequest, NextResponse } from "next/server";
 
-// 🚨 These must NOT be exported to the client
+// 🔒 Secure PayPal server-side credentials
 const PAYPAL_API = process.env.PAYPAL_API ?? "https://api-m.sandbox.paypal.com";
 const PAYPAL_CLIENT_ID = process.env.PAYPAL_CLIENT_ID!;
 const PAYPAL_SECRET_KEY = process.env.PAYPAL_SECRET_KEY!;
-
-if (!PAYPAL_CLIENT_ID || !PAYPAL_SECRET_KEY) {
-  throw new Error("Missing PayPal credentials in environment");
-}
+const TOKEN_SECRET = process.env.TOKEN_SECRET!;
 
 async function getAccessToken() {
   const auth = Buffer.from(`${PAYPAL_CLIENT_ID}:${PAYPAL_SECRET_KEY}`).toString(
     "base64"
   );
-  const resp = await fetch(`${PAYPAL_API}/v1/oauth2/token`, {
+  const res = await fetch(`${PAYPAL_API}/v1/oauth2/token`, {
     method: "POST",
     headers: {
       Authorization: `Basic ${auth}`,
@@ -23,60 +22,78 @@ async function getAccessToken() {
     body: "grant_type=client_credentials",
   });
 
-  if (!resp.ok) {
-    const err = await resp.text();
-    console.error("PayPal OAuth error:", err);
+  if (!res.ok) {
     throw new Error("Failed to authenticate with PayPal");
   }
 
-  const { access_token } = await resp.json();
-  return access_token as string;
+  const data = await res.json();
+  return data.access_token;
 }
 
 export async function POST(req: NextRequest) {
+  const token = (await cookies()).get("token")?.value;
+
+  if (!token) {
+    return NextResponse.json({ message: "Unauthorized" }, { status: 401 });
+  }
+
+  let decodedToken: JwtPayload;
+  try {
+    const decoded = jwt.verify(token, TOKEN_SECRET);
+    if (typeof decoded === "string" || !("user" in decoded)) {
+      throw new Error("Invalid token payload");
+    }
+    decodedToken = decoded as JwtPayload;
+    console.log(decodedToken);
+  } catch (error) {
+    console.log(error);
+    return NextResponse.json(
+      { message: "Invalid or expired token" },
+      { status: 403 }
+    );
+  }
+
   let orderID: string;
   try {
     const body = await req.json();
     orderID = body.orderID;
+    if (!orderID) throw new Error("Missing orderID");
   } catch {
-    return NextResponse.json({ error: "Invalid JSON body" }, { status: 400 });
-  }
-
-  if (!orderID) {
-    return NextResponse.json({ error: "Missing orderID" }, { status: 400 });
+    return NextResponse.json(
+      { message: "Invalid request body" },
+      { status: 400 }
+    );
   }
 
   try {
-    const token = await getAccessToken();
+    const accessToken = await getAccessToken();
 
-    const captureRes = await fetch(
+    const capture = await fetch(
       `${PAYPAL_API}/v2/checkout/orders/${orderID}/capture`,
       {
         method: "POST",
         headers: {
-          Authorization: `Bearer ${token}`,
+          Authorization: `Bearer ${accessToken}`,
           "Content-Type": "application/json",
         },
       }
     );
 
-    const data = await captureRes.json();
+    const data = await capture.json();
 
-    if (!captureRes.ok) {
-      // e.g. semantically incorrect, invalid orderID, etc.
-      console.error("PayPal capture error:", data);
+    if (!capture.ok) {
       return NextResponse.json(
-        { error: "Capture failed", details: data },
+        { success: false, error: "PayPal capture failed", details: data },
         { status: 400 }
       );
     }
 
-    // ✅ Success! return the full order capture details
-    return NextResponse.json({ success: true, order: data }, { status: 200 });
+    // 🧠 Optionally save to DB using user info (user.userName, user.email, etc.)
+    return NextResponse.json({ success: true, data }, { status: 200 });
   } catch (err) {
-    console.error("Internal PayPal route error:", err);
+    console.error("PayPal error:", err);
     return NextResponse.json(
-      { error: "Internal Server Error" },
+      { message: "Internal Server Error" },
       { status: 500 }
     );
   }

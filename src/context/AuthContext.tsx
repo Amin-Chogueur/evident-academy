@@ -11,7 +11,7 @@ import { toast } from "react-toastify";
 type UserType = {
   message: string;
   role: string;
-  userName: string;
+  userEmail: string;
 };
 
 type AuthContextType = {

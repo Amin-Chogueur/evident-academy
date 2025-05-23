@@ -30,7 +30,6 @@ const intialFormState = {
 };
 
 export default function NewCourse() {
-  console.log("new course page render");
   const router = useRouter();
   const loading = useAppSelector((state) => state.course.loading);
   const dispatch = useAppDispatch();

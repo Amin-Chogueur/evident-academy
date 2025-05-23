@@ -2,11 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { toast } from "react-toastify";
 
 export type ItemType = {
-  id: string;
-  title: string;
-  price: string;
-  imageUrl: string;
-  category: string;
+  _id: string;
 };
 type CartType = {
   cart: ItemType[];
@@ -21,15 +17,15 @@ const cartSlice = createSlice({
   initialState,
   reducers: {
     addToCart: (state, action) => {
-      if (state.cart.find((course) => course.id === action.payload.id)) {
+      if (state.cart.find((course) => course._id === action.payload)) {
         toast.error("This course is already in your cart");
         return;
       }
-      state.cart.push(action.payload);
+      state.cart.push({ _id: action.payload });
       toast.success("The course added to your cart");
     },
     removeFromCart: (state, action) => {
-      state.cart = state.cart.filter((item) => item.id !== action.payload);
+      state.cart = state.cart.filter((course) => course._id !== action.payload);
       toast.success("The course removed from your cart");
     },
   },
